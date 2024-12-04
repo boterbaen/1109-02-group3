@@ -2,10 +2,13 @@
 // TODO:
 // - add sanitization
 
-import OpenAI from "openai";
+require('dotenv').config();
+
+const OpenAI = require("openai");
 const openai = new OpenAI({
     organization: "org-OfVVLbO2OaDC7ZeSSMdLAh92",
     project: "proj_DDpFaXcvOpoN0C26ieZiuDx1",
+    apiKey: process.env.OPENAI_KEY
 });
 
 const express = require('express');
@@ -26,14 +29,24 @@ app.get("/about", (req, res) => {
     res.sendFile(__dirname + "/public/about.html");
 })
 
-app.post('/submit', (req, res) => {
+app.post('/submit', async (req, res) => {
     const data = req.body;
     console.log(data);
-    //res.send(`<h1 style="text-align: center; 
-    //margin-top: 50vh; transform: translateY(-50%);">
-    //Form submitted successfully!</h1>`);
+    
+    const completion = await openai.chat.completions.create({
+        model: "gpt-4o-mini",
+        messages: [
+            { role: "system", content: "You are a code generator." },
+            {
+                role: "user",
+                content: "Generate a recipe formatted in HTML as it would appear in the <body> section for the most prominent food item in the movie " + data.movietitle + ", prefaced with a description of the scene that this food item is found in. This response should be on one line (contains no \\n character) and should contain no additional text or characters strictly beyond the HTML content.",
+            },
+        ],
+    });
+    console.log(completion.choices[0].message);
+    res.send(completion.choices[0].message.content.replace("`", ""));
 });
 
 app.listen(PORT, () => {
-    console.log(`Server is running on http://localhost:${PORT}`);
+    console.log(`Server is running on ${PORT}`);
 });
