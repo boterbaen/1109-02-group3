@@ -5,7 +5,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ScreenSavour</title>
         <link rel="stylesheet" href="css/style.css">
-        <script src="js/main.js"></script>
     </head>
     <body>
         <ul>
@@ -13,14 +12,12 @@
             <li><a href="/about">About</a></li>
         </ul>
         <div id="inputdiv">
-            <form id="inputform" method="POST" action="/submit">
+            <form id="inputform" method="POST" action="/api">
                 <label for="movie">What movie would you like to taste?</label>
                 <input type="text" id="movie" name="movietitle" placeholder="Movie title...">
                 <input type="submit" value="Submit">
             </form>
         </div>
-        <div id="outputdiv">
-
-        </div>
+        <div id="outputdiv"><%- output %></div>
     </body>
 </html>
