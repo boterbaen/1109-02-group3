@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang=en>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ScreenSavour</title>
+        <link rel="stylesheet" href="css/style.css">
+        <script src="js/main.js"></script>
+    </head>
+    <body>
+        <ul>
+            <li><a class="active" href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+        <div id="inputdiv">
+            <form id="inputform" method="POST" action="/submit">
+                <label for="movie">What movie would you like to taste?</label>
+                <input type="text" id="movie" name="movietitle" placeholder="Movie title...">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <div id="outputdiv">
+
+        </div>
+    </body>
+</html>
