@@ -41,7 +41,7 @@ app.post('/api', async (req, res) => {
             { role: "system", content: "You are a code generator." },
             {
                 role: "user",
-                content: "Generate a recipe formatted in HTML as it would appear in the <body> section for the most prominent food item in the movie " + data.movietitle + ", prefaced with a description of the scene that this food item is found in. This response should be on one line (contains no \\n character) and should contain no additional text or characters strictly beyond the HTML content. The class of all <div>, <ul>, <li>, and <h1> elements should be \"response\" in order to differentiate the content of this recipe from the rest of the page.",
+                content: "Generate a recipe formatted in HTML as it would appear in the <body> section for the most prominent food item in the movie/show " + data.movietitle + ", prefaced with a description of the scene that this food item is found in. If there are no valid food items, create a thematically appropriate recipe. This response should be on one line (contains no \\n character) and should contain no additional text or characters strictly beyond the HTML content. Most crucially, every single HTML element must have the inline tag, class=\"response\", in order to properly format the recipe.",
             },
         ],
     });
