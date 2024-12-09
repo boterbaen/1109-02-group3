@@ -1,6 +1,10 @@
 html, body {
     margin: auto;
-    background-color: #ace69f;
+    background-color: #3b393d;
+    background-image: url('/img/background.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
     width: 100%;
     height: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -16,7 +20,7 @@ ul:not(.response) {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #3d5338;
+    background-color: #5b595e;
 }
   
 li:not(.response) {
@@ -32,11 +36,11 @@ li a:not(.response) {
 }
   
 li a:hover:not(.active):not(.response) {
-    background-color: #173511;
+    background-color: #49454b;
 }
   
 .active {
-    background-color: #171a16;
+    background-color: #3b393d;
 }
 
 input[type=text], select {
@@ -51,7 +55,7 @@ input[type=text], select {
   
 input[type=submit] {
     width: 100%;
-    background-color: #4CAF50;
+    background-color: #531591;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
@@ -61,7 +65,7 @@ input[type=submit] {
 }
   
 input[type=submit]:hover {
-    background-color: #45a049;
+    background-color: #421371;
 }
   
 div:not(.response) {
